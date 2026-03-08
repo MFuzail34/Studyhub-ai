@@ -47,6 +47,7 @@ export default function Login() {
               <Label htmlFor="password">Password</Label>
               <Input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required placeholder="••••••••" />
               <Link to="/forgot-password" className="text-xs text-primary hover:underline float-right mt-1">Forgot password?</Link>
+            </div>
             <Button type="submit" className="w-full gradient-primary border-0" disabled={submitting}>
               {submitting ? "Signing in…" : "Sign in"}
             </Button>
