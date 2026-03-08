@@ -14,6 +14,8 @@ import ResetPassword from "./pages/ResetPassword";
 import Dashboard from "./pages/Dashboard";
 import StudyTimer from "./pages/StudyTimer";
 import StudyHistory from "./pages/StudyHistory";
+import LecturesHub from "./pages/LecturesHub";
+import MyLectures from "./pages/MyLectures";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 
@@ -36,6 +38,8 @@ const App = () => (
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/timer" element={<StudyTimer />} />
               <Route path="/history" element={<StudyHistory />} />
+              <Route path="/lectures" element={<LecturesHub />} />
+              <Route path="/my-lectures" element={<MyLectures />} />
               <Route path="/profile" element={<Profile />} />
             </Route>
             <Route path="*" element={<NotFound />} />

@@ -35,6 +35,39 @@ export type Database = {
         }
         Relationships: []
       }
+      saved_lectures: {
+        Row: {
+          channel_name: string
+          created_at: string
+          duration: string | null
+          id: string
+          thumbnail_url: string
+          title: string
+          user_id: string
+          video_id: string
+        }
+        Insert: {
+          channel_name: string
+          created_at?: string
+          duration?: string | null
+          id?: string
+          thumbnail_url: string
+          title: string
+          user_id: string
+          video_id: string
+        }
+        Update: {
+          channel_name?: string
+          created_at?: string
+          duration?: string | null
+          id?: string
+          thumbnail_url?: string
+          title?: string
+          user_id?: string
+          video_id?: string
+        }
+        Relationships: []
+      }
       study_sessions: {
         Row: {
           created_at: string
