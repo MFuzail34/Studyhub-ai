@@ -1,4 +1,4 @@
-import { LayoutDashboard, Timer, History, User, LogOut } from "lucide-react";
+import { LayoutDashboard, Timer, History, User, LogOut, GraduationCap, BookmarkCheck } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
@@ -20,6 +20,8 @@ const items = [
   { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
   { title: "Study Timer", url: "/timer", icon: Timer },
   { title: "History", url: "/history", icon: History },
+  { title: "Lectures Hub", url: "/lectures", icon: GraduationCap },
+  { title: "My Lectures", url: "/my-lectures", icon: BookmarkCheck },
   { title: "Profile", url: "/profile", icon: User },
 ];
 
