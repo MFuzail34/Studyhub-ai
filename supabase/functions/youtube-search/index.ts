@@ -69,9 +69,11 @@ Deno.serve(async (req) => {
         const searchUrl = new URL("https://www.googleapis.com/youtube/v3/search");
         searchUrl.searchParams.set("part", "snippet");
         searchUrl.searchParams.set("channelId", channel.id);
+        searchUrl.searchParams.set("q", "lecture|class|chapter|explanation|lesson|topic");
         searchUrl.searchParams.set("type", "video");
         searchUrl.searchParams.set("order", "date");
-        searchUrl.searchParams.set("maxResults", "20");
+        searchUrl.searchParams.set("maxResults", "25");
+        searchUrl.searchParams.set("videoCategoryId", "27"); // Education category
         searchUrl.searchParams.set("key", YOUTUBE_API_KEY);
 
         const searchRes = await fetch(searchUrl.toString());
