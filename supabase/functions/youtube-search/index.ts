@@ -95,15 +95,23 @@ Deno.serve(async (req) => {
         const detailsRes = await fetch(detailsUrl.toString());
         const detailsData = await detailsRes.json();
 
-        const videos = detailsData.items?.map((item: any) => ({
-          videoId: item.id,
-          title: item.snippet.title,
-          channelName: item.snippet.channelTitle,
-          channelKey: key,
-          thumbnailUrl: item.snippet.thumbnails.high?.url || item.snippet.thumbnails.medium?.url,
-          duration: parseDuration(item.contentDetails.duration),
-          publishedAt: item.snippet.publishedAt,
-        })) || [];
+        const videos = (detailsData.items || [])
+          .filter((item: any) => {
+            const dur = item.contentDetails.duration;
+            const match = dur.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+            if (!match) return false;
+            const totalSeconds = (parseInt(match[1] || "0") * 3600) + (parseInt(match[2] || "0") * 60) + parseInt(match[3] || "0");
+            return totalSeconds >= 300;
+          })
+          .map((item: any) => ({
+            videoId: item.id,
+            title: item.snippet.title,
+            channelName: item.snippet.channelTitle,
+            channelKey: key,
+            thumbnailUrl: item.snippet.thumbnails.high?.url || item.snippet.thumbnails.medium?.url,
+            duration: parseDuration(item.contentDetails.duration),
+            publishedAt: item.snippet.publishedAt,
+          }));
 
         allVideos.push(...videos);
       }
