@@ -6,6 +6,13 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
+// Curated channel list
+const CHANNELS: Record<string, { name: string; id: string }> = {
+  physicswallah: { name: "Physics Wallah", id: "UCiGyWN6DEbnj2alu7iapuKQ" },
+  nexttoppers: { name: "Next Toppers", id: "UC6k0UlWg59GNng1T-3X71DA" },
+  allstudies: { name: "All Studies", id: "UC7raRsx4ojx3cyXT3x9-PuQ" },
+};
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -44,8 +51,70 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { query, maxResults = 12 } = await req.json();
+    const body = await req.json();
+    const { query, maxResults = 12, mode = "search", channelKey } = body;
 
+    // Mode: "channel" — fetch latest videos from specific channels
+    if (mode === "channel") {
+      const channelKeys = channelKey
+        ? [channelKey]
+        : Object.keys(CHANNELS);
+
+      const allVideos: any[] = [];
+
+      for (const key of channelKeys) {
+        const channel = CHANNELS[key];
+        if (!channel) continue;
+
+        const searchUrl = new URL("https://www.googleapis.com/youtube/v3/search");
+        searchUrl.searchParams.set("part", "snippet");
+        searchUrl.searchParams.set("channelId", channel.id);
+        searchUrl.searchParams.set("type", "video");
+        searchUrl.searchParams.set("order", "date");
+        searchUrl.searchParams.set("maxResults", "20");
+        searchUrl.searchParams.set("key", YOUTUBE_API_KEY);
+
+        const searchRes = await fetch(searchUrl.toString());
+        const searchData = await searchRes.json();
+
+        if (!searchRes.ok) {
+          console.error(`YouTube channel error for ${key}:`, searchData);
+          continue;
+        }
+
+        const videoIds = searchData.items?.map((item: any) => item.id.videoId).filter(Boolean).join(",");
+        if (!videoIds) continue;
+
+        const detailsUrl = new URL("https://www.googleapis.com/youtube/v3/videos");
+        detailsUrl.searchParams.set("part", "contentDetails,snippet");
+        detailsUrl.searchParams.set("id", videoIds);
+        detailsUrl.searchParams.set("key", YOUTUBE_API_KEY);
+
+        const detailsRes = await fetch(detailsUrl.toString());
+        const detailsData = await detailsRes.json();
+
+        const videos = detailsData.items?.map((item: any) => ({
+          videoId: item.id,
+          title: item.snippet.title,
+          channelName: item.snippet.channelTitle,
+          channelKey: key,
+          thumbnailUrl: item.snippet.thumbnails.high?.url || item.snippet.thumbnails.medium?.url,
+          duration: parseDuration(item.contentDetails.duration),
+          publishedAt: item.snippet.publishedAt,
+        })) || [];
+
+        allVideos.push(...videos);
+      }
+
+      // Sort by upload date descending
+      allVideos.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+
+      return new Response(JSON.stringify({ videos: allVideos }), {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    // Mode: "search" — keyword search (existing behavior)
     if (!query || typeof query !== "string") {
       return new Response(JSON.stringify({ error: "Query is required" }), {
         status: 400,
@@ -53,7 +122,6 @@ Deno.serve(async (req) => {
       });
     }
 
-    // Search for videos
     const searchUrl = new URL("https://www.googleapis.com/youtube/v3/search");
     searchUrl.searchParams.set("part", "snippet");
     searchUrl.searchParams.set("q", query);
@@ -75,14 +143,12 @@ Deno.serve(async (req) => {
     }
 
     const videoIds = searchData.items?.map((item: any) => item.id.videoId).join(",");
-
     if (!videoIds) {
       return new Response(JSON.stringify({ videos: [] }), {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
 
-    // Get video details (duration, etc.)
     const detailsUrl = new URL("https://www.googleapis.com/youtube/v3/videos");
     detailsUrl.searchParams.set("part", "contentDetails,snippet");
     detailsUrl.searchParams.set("id", videoIds);
