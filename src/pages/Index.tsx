@@ -103,44 +103,84 @@ export default function Index() {
       {/* Pricing */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="text-3xl font-bold text-center mb-4">
             Simple <span className="gradient-text">pricing</span>
           </h2>
-          <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-            {plans.map((plan) => (
-              <Card
-                key={plan.name}
-                className={`border shadow-md ${plan.popular ? "ring-2 ring-primary relative" : ""}`}
-              >
-                {plan.popular && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 gradient-primary text-white text-xs font-medium px-3 py-1 rounded-full">
-                    Popular
-                  </span>
-                )}
-                <CardContent className="p-8">
-                  <h3 className="text-xl font-semibold">{plan.name}</h3>
-                  <div className="mt-4 flex items-baseline gap-1">
-                    <span className="text-4xl font-bold">{plan.price}</span>
-                    <span className="text-muted-foreground">{plan.period}</span>
-                  </div>
-                  <ul className="mt-6 space-y-3">
-                    {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-2 text-sm">
-                        <Check className="h-4 w-4 text-primary shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button
-                    className={`w-full mt-8 ${plan.popular ? "gradient-primary border-0" : ""}`}
-                    variant={plan.popular ? "default" : "outline"}
-                    asChild
-                  >
-                    <Link to="/signup">Get Started</Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+          <p className="text-center text-muted-foreground mb-12">Start free, upgrade when you need more power.</p>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto mb-16">
+            {/* Free Plan */}
+            <Card className="border shadow-md">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-semibold">Free</h3>
+                <div className="mt-4 flex items-baseline gap-1">
+                  <span className="text-4xl font-bold">₹0</span>
+                  <span className="text-muted-foreground">forever</span>
+                </div>
+                <p className="mt-3 text-sm text-muted-foreground">Perfect for getting started with study tracking.</p>
+                <Button className="w-full mt-8" variant="outline" asChild>
+                  <Link to="/signup">Get Started</Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Pro Plan */}
+            <Card className="border shadow-md ring-2 ring-primary relative">
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 gradient-primary text-white text-xs font-medium px-3 py-1 rounded-full">
+                Popular
+              </span>
+              <CardContent className="p-8">
+                <h3 className="text-xl font-semibold">Pro</h3>
+                <div className="mt-4 flex items-baseline gap-1">
+                  <span className="text-4xl font-bold">₹99</span>
+                  <span className="text-muted-foreground">/month</span>
+                </div>
+                <p className="mt-1 text-xs text-muted-foreground">or ₹799/year (save 33%)</p>
+                <p className="mt-3 text-sm text-muted-foreground">AI-powered features to supercharge your studies.</p>
+                <Button className="w-full mt-8 gradient-primary border-0" asChild>
+                  <Link to="/signup">Start Pro</Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Feature Comparison */}
+          <div className="max-w-2xl mx-auto">
+            <h3 className="text-xl font-semibold text-center mb-6">Feature Comparison</h3>
+            <div className="rounded-lg border overflow-hidden">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-muted/50">
+                    <th className="text-left p-4 font-medium">Feature</th>
+                    <th className="text-center p-4 font-medium">Free</th>
+                    <th className="text-center p-4 font-medium">Pro</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonFeatures.map((f, i) => (
+                    <tr key={f.name} className={i % 2 === 0 ? "bg-card" : "bg-muted/20"}>
+                      <td className="p-4">{f.name}</td>
+                      <td className="p-4 text-center">
+                        {f.free === true ? (
+                          <Check className="h-4 w-4 text-primary mx-auto" />
+                        ) : f.free === false ? (
+                          <span className="text-muted-foreground">—</span>
+                        ) : (
+                          <span className="text-muted-foreground text-xs">{f.free}</span>
+                        )}
+                      </td>
+                      <td className="p-4 text-center">
+                        {f.pro === true ? (
+                          <Check className="h-4 w-4 text-primary mx-auto" />
+                        ) : (
+                          <span className="text-xs font-medium text-primary">{f.pro}</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
