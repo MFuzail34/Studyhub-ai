@@ -21,20 +21,19 @@ const features = [
   },
 ];
 
-const plans = [
-  {
-    name: "Free",
-    price: "$0",
-    period: "forever",
-    features: ["Unlimited study sessions", "Basic analytics", "Up to 5 subjects", "7-day history"],
-  },
-  {
-    name: "Pro",
-    price: "$5",
-    period: "/month",
-    features: ["Everything in Free", "Advanced analytics", "Unlimited subjects", "Full history", "Export data"],
-    popular: true,
-  },
+const comparisonFeatures = [
+  { name: "Lecture Hub", free: true, pro: true },
+  { name: "Study Timer", free: true, pro: true },
+  { name: "Track Daily Study Hours", free: true, pro: true },
+  { name: "Save Lectures", free: true, pro: true },
+  { name: "Lecture Bookmarks", free: "Limited", pro: "Unlimited" },
+  { name: "Study Analytics", free: "Basic", pro: "Advanced" },
+  { name: "AI Study Planner", free: false, pro: true },
+  { name: "Smart Lecture Recommendations", free: false, pro: true },
+  { name: "AI Doubt Assistant", free: false, pro: true },
+  { name: "Exam Countdown", free: false, pro: true },
+  { name: "Study Streak & Badges", free: false, pro: true },
+  { name: "Study Leaderboard", free: false, pro: true },
 ];
 
 export default function Index() {
