@@ -148,8 +148,12 @@ export default function Index() {
 
       {/* Footer */}
       <footer className="border-t py-8 px-6">
-        <div className="max-w-6xl mx-auto text-center text-sm text-muted-foreground">
-          © 2026 StudyTracker. Built with focus.
+        <div className="max-w-6xl mx-auto flex flex-col items-center gap-3 text-sm text-muted-foreground">
+          <div className="flex gap-4">
+            <Link to="/privacy-policy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-foreground transition-colors">Terms of Service</Link>
+          </div>
+          <p>© 2026 StudyTracker. Built with focus.</p>
         </div>
       </footer>
     </div>
