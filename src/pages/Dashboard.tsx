@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
+import { useSubscription } from "@/hooks/useSubscription";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Timer, Clock, Flame, Play } from "lucide-react";
+import { Timer, Clock, Flame, Play, Crown } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { startOfDay, startOfWeek, endOfWeek, format, subDays, isSameDay } from "date-fns";
 
@@ -18,6 +20,7 @@ function formatDuration(seconds: number) {
 
 export default function Dashboard() {
   const { user } = useAuth();
+  const { subscription, isPro } = useSubscription();
   const [loading, setLoading] = useState(true);
   const [todayTime, setTodayTime] = useState(0);
   const [weeklyTime, setWeeklyTime] = useState(0);
@@ -94,15 +97,48 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-6 max-w-5xl">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Dashboard</h1>
-        <Button asChild className="gradient-primary border-0">
-          <Link to="/timer">
-            <Play className="mr-2 h-4 w-4" />
-            Start Study Session
-          </Link>
-        </Button>
+      <div className="flex items-center justify-between flex-wrap gap-3">
+        <div className="flex items-center gap-3">
+          <h1 className="text-2xl font-bold">Dashboard</h1>
+          {isPro && (
+            <Badge className="gradient-primary border-0 text-primary-foreground">
+              <Crown className="h-3 w-3 mr-1" /> Pro Active
+            </Badge>
+          )}
+        </div>
+        <div className="flex gap-2">
+          {!isPro && (
+            <Button variant="outline" asChild>
+              <Link to="/pricing">
+                <Crown className="mr-2 h-4 w-4" /> Upgrade
+              </Link>
+            </Button>
+          )}
+          <Button asChild className="gradient-primary border-0">
+            <Link to="/timer">
+              <Play className="mr-2 h-4 w-4" />
+              Start Study Session
+            </Link>
+          </Button>
+        </div>
       </div>
+
+      {/* Pro Subscription Info */}
+      {isPro && subscription && (
+        <Card className="border-2 border-primary/20 shadow-md bg-primary/5">
+          <CardContent className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <Crown className="h-8 w-8 text-primary" />
+              <div>
+                <p className="font-semibold">StudifyHub Pro Active</p>
+                <p className="text-sm text-muted-foreground">
+                  <span className="capitalize">{subscription.plan_type}</span> plan · Activated {format(new Date(subscription.activated_at), "dd MMM yyyy")} · Renews {format(new Date(subscription.expires_at), "dd MMM yyyy")}
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      )}
 
       <div className="grid sm:grid-cols-3 gap-4">
         {stats.map((s) =>

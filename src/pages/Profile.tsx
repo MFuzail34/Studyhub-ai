@@ -59,6 +59,8 @@ export default function Profile() {
         supabase.from("study_sessions").delete().eq("user_id", user.id),
         supabase.from("saved_lectures").delete().eq("user_id", user.id),
         supabase.from("subjects").delete().eq("user_id", user.id),
+        supabase.from("payment_submissions").delete().eq("user_id", user.id),
+        supabase.from("user_subscriptions").delete().eq("user_id", user.id),
         supabase.from("profiles").delete().eq("user_id", user.id),
       ]);
 

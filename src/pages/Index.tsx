@@ -138,7 +138,7 @@ export default function Index() {
                 <p className="mt-1 text-xs text-muted-foreground">or ₹799/year (save 33%)</p>
                 <p className="mt-3 text-sm text-muted-foreground">AI-powered features to supercharge your studies.</p>
                 <Button className="w-full mt-8 gradient-primary border-0" asChild>
-                  <Link to="/signup">Start Pro</Link>
+                  <Link to="/pricing">Start Pro</Link>
                 </Button>
               </CardContent>
             </Card>

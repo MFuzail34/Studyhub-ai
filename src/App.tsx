@@ -18,6 +18,9 @@ import StudyHistory from "./pages/StudyHistory";
 import LecturesHub from "./pages/LecturesHub";
 import MyLectures from "./pages/MyLectures";
 import Profile from "./pages/Profile";
+import Pricing from "./pages/Pricing";
+import Upgrade from "./pages/Upgrade";
+import AdminPayments from "./pages/AdminPayments";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
@@ -40,6 +43,7 @@ const App = () => (
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/pricing" element={<Pricing />} />
             <Route element={<ProtectedRoute><AppLayout /></ProtectedRoute>}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/timer" element={<StudyTimer />} />
@@ -47,6 +51,8 @@ const App = () => (
               <Route path="/lectures" element={<LecturesHub />} />
               <Route path="/my-lectures" element={<MyLectures />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/upgrade" element={<Upgrade />} />
+              <Route path="/admin/payments" element={<AdminPayments />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
