@@ -1,7 +1,7 @@
-import { LayoutDashboard, Timer, History, User, LogOut, GraduationCap, BookmarkCheck } from "lucide-react";
+import { LayoutDashboard, Timer, History, User, LogOut, GraduationCap, BookmarkCheck, Crown, Shield } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
-import { useLocation } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { useSubscription } from "@/hooks/useSubscription";
 import {
   Sidebar,
   SidebarContent,
@@ -28,8 +28,8 @@ const items = [
 export function AppSidebar() {
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
-  const location = useLocation();
   const { signOut } = useAuth();
+  const { isPro, isAdmin } = useSubscription();
 
   return (
     <Sidebar collapsible="icon">
@@ -38,7 +38,7 @@ export function AppSidebar() {
           <SidebarGroupLabel>
             {!collapsed && (
               <span className="gradient-text text-lg font-bold tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                StudyTracker
+                StudifyHub
               </span>
             )}
           </SidebarGroupLabel>
@@ -59,6 +59,38 @@ export function AppSidebar() {
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
+
+              {!isPro && (
+                <SidebarMenuItem>
+                  <SidebarMenuButton asChild>
+                    <NavLink
+                      to="/pricing"
+                      end
+                      className="hover:bg-sidebar-accent/50"
+                      activeClassName="bg-sidebar-accent text-sidebar-accent-foreground font-medium"
+                    >
+                      <Crown className="mr-2 h-4 w-4" />
+                      {!collapsed && <span>Upgrade to Pro</span>}
+                    </NavLink>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              )}
+
+              {isAdmin && (
+                <SidebarMenuItem>
+                  <SidebarMenuButton asChild>
+                    <NavLink
+                      to="/admin/payments"
+                      end
+                      className="hover:bg-sidebar-accent/50"
+                      activeClassName="bg-sidebar-accent text-sidebar-accent-foreground font-medium"
+                    >
+                      <Shield className="mr-2 h-4 w-4" />
+                      {!collapsed && <span>Admin Panel</span>}
+                    </NavLink>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              )}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
