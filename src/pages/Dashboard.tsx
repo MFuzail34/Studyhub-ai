@@ -20,6 +20,7 @@ function formatDuration(seconds: number) {
 
 export default function Dashboard() {
   const { user } = useAuth();
+  const { subscription, isPro } = useSubscription();
   const [loading, setLoading] = useState(true);
   const [todayTime, setTodayTime] = useState(0);
   const [weeklyTime, setWeeklyTime] = useState(0);
