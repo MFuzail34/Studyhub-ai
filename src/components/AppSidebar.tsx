@@ -1,4 +1,4 @@
-import { LayoutDashboard, Timer, History, User, LogOut, GraduationCap, BookmarkCheck, Crown, Shield } from "lucide-react";
+import { LayoutDashboard, Timer, History, User, LogOut, GraduationCap, BookmarkCheck, Crown, Shield, FileText } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSubscription } from "@/hooks/useSubscription";
