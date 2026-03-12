@@ -22,6 +22,7 @@ const items = [
   { title: "History", url: "/history", icon: History },
   { title: "Lectures Hub", url: "/lectures", icon: GraduationCap },
   { title: "My Lectures", url: "/my-lectures", icon: BookmarkCheck },
+  { title: "AI Paper Gen", url: "/question-paper", icon: FileText },
   { title: "Profile", url: "/profile", icon: User },
 ];
 
