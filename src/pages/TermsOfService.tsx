@@ -104,7 +104,7 @@ export default function TermsOfService() {
             For any questions regarding these Terms, please contact us at:
           </p>
           <div className="rounded-lg bg-card border p-4 text-sm text-muted-foreground">
-            <p><strong>Email:</strong> support@studytracker.in</p>
+            <p><strong>Email:</strong> support@studyhub.in</p>
           </div>
         </section>
       </main>
