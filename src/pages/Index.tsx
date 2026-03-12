@@ -192,7 +192,7 @@ export default function Index() {
             <Link to="/privacy-policy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-foreground transition-colors">Terms of Service</Link>
           </div>
-          <p>© 2026 StudyTracker. Built with focus.</p>
+          <p>© 2026 StudyHub. Built with focus.</p>
         </div>
       </footer>
     </div>

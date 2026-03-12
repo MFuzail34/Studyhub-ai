@@ -111,7 +111,7 @@ export default function TermsOfService() {
 
       <footer className="border-t py-8 px-6">
         <div className="max-w-4xl mx-auto text-center text-sm text-muted-foreground">
-          © 2026 StudyTracker. Built with focus.
+          © 2026 StudyHub. Built with focus.
         </div>
       </footer>
     </div>

@@ -52,7 +52,7 @@ export default function ResetPassword() {
       <Card className="w-full max-w-md shadow-lg border-0">
         <CardHeader className="text-center">
           <Link to="/" className="gradient-text text-2xl font-bold mb-2 inline-block" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-            StudyTracker
+            StudyHub
           </Link>
           <CardTitle className="text-xl">
             {success ? "Password updated!" : "Set a new password"}

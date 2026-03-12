@@ -33,7 +33,7 @@ export function ConsentBanner() {
           <div className="space-y-2">
             <h3 className="font-semibold text-sm">Data Collection Consent</h3>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              StudyTracker collects your email, study session data, and saved lectures to provide personalized study tracking. We comply with the <strong>Digital Personal Data Protection Act, 2023</strong>. Your data is encrypted and never shared with third parties for advertising.
+              StudyHub collects your email, study session data, and saved lectures to provide personalized study tracking. We comply with the <strong>Digital Personal Data Protection Act, 2023</strong>. Your data is encrypted and never shared with third parties for advertising.
             </p>
             <p className="text-xs text-muted-foreground">
               Read our{" "}
