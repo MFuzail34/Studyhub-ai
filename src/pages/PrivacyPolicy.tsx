@@ -23,7 +23,7 @@ export default function PrivacyPolicy() {
         <section className="space-y-4">
           <h2 className="text-xl font-semibold">1. Introduction</h2>
           <p className="text-muted-foreground leading-relaxed">
-            StudyTracker ("we", "our", "us") is committed to protecting the privacy of our users, especially students who may be minors. This Privacy Policy is drafted in compliance with the <strong>Digital Personal Data Protection Act, 2023 (DPDPA)</strong> of India and explains how we collect, use, store, and protect your personal data.
+            StudyHub ("we", "our", "us") is committed to protecting the privacy of our users, especially students who may be minors. This Privacy Policy is drafted in compliance with the <strong>Digital Personal Data Protection Act, 2023 (DPDPA)</strong> of India and explains how we collect, use, store, and protect your personal data.
           </p>
         </section>
 
