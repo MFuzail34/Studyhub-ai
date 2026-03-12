@@ -59,7 +59,7 @@ export default function TermsOfService() {
         <section className="space-y-4">
           <h2 className="text-xl font-semibold">5. Intellectual Property</h2>
           <p className="text-muted-foreground leading-relaxed">
-            All content, features, and functionality of StudyTracker are owned by us and are protected by copyright, trademark, and other intellectual property laws. YouTube content displayed through our Lectures Hub is owned by the respective content creators and is subject to YouTube's Terms of Service.
+            All content, features, and functionality of StudyHub are owned by us and are protected by copyright, trademark, and other intellectual property laws. YouTube content displayed through our Lectures Hub is owned by the respective content creators and is subject to YouTube's Terms of Service.
           </p>
         </section>
 
