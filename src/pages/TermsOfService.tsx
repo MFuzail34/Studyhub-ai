@@ -11,7 +11,7 @@ export default function TermsOfService() {
             <Link to="/"><ArrowLeft className="h-5 w-5" /></Link>
           </Button>
           <span className="gradient-text text-xl font-bold" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-            StudyTracker
+            StudyHub
           </span>
         </div>
       </nav>
