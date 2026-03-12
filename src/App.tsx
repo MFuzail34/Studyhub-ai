@@ -23,6 +23,7 @@ import Upgrade from "./pages/Upgrade";
 import AdminPayments from "./pages/AdminPayments";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import QuestionPaperGenerator from "./pages/QuestionPaperGenerator";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
