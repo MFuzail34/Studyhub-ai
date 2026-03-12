@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ShieldCheck } from "lucide-react";
 
-const CONSENT_KEY = "studytracker_data_consent";
+const CONSENT_KEY = "studyhub_data_consent";
 
 export function ConsentBanner() {
   const [visible, setVisible] = useState(false);
