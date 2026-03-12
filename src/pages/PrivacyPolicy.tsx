@@ -11,7 +11,7 @@ export default function PrivacyPolicy() {
             <Link to="/"><ArrowLeft className="h-5 w-5" /></Link>
           </Button>
           <span className="gradient-text text-xl font-bold" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-            StudyTracker
+            StudyHub
           </span>
         </div>
       </nav>
@@ -23,7 +23,7 @@ export default function PrivacyPolicy() {
         <section className="space-y-4">
           <h2 className="text-xl font-semibold">1. Introduction</h2>
           <p className="text-muted-foreground leading-relaxed">
-            StudyTracker ("we", "our", "us") is committed to protecting the privacy of our users, especially students who may be minors. This Privacy Policy is drafted in compliance with the <strong>Digital Personal Data Protection Act, 2023 (DPDPA)</strong> of India and explains how we collect, use, store, and protect your personal data.
+            StudyHub ("we", "our", "us") is committed to protecting the privacy of our users, especially students who may be minors. This Privacy Policy is drafted in compliance with the <strong>Digital Personal Data Protection Act, 2023 (DPDPA)</strong> of India and explains how we collect, use, store, and protect your personal data.
           </p>
         </section>
 
@@ -120,7 +120,7 @@ export default function PrivacyPolicy() {
             If you have any concerns or complaints regarding your data, you may contact our Grievance Officer:
           </p>
           <div className="rounded-lg bg-card border p-4 text-sm text-muted-foreground">
-            <p><strong>Email:</strong> grievance@studytracker.in</p>
+            <p><strong>Email:</strong> grievance@studyhub.in</p>
             <p><strong>Response time:</strong> Within 30 days of receiving the complaint</p>
           </div>
         </section>
@@ -135,7 +135,7 @@ export default function PrivacyPolicy() {
 
       <footer className="border-t py-8 px-6">
         <div className="max-w-4xl mx-auto text-center text-sm text-muted-foreground">
-          © 2026 StudyTracker. Built with focus.
+          © 2026 StudyHub. Built with focus.
         </div>
       </footer>
     </div>

@@ -43,7 +43,7 @@ export default function Index() {
       <nav className="border-b bg-card/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <span className="gradient-text text-xl font-bold" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-            StudyTracker
+            StudyHub
           </span>
           <div className="flex gap-3">
             <Button variant="ghost" asChild>
@@ -192,7 +192,7 @@ export default function Index() {
             <Link to="/privacy-policy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-foreground transition-colors">Terms of Service</Link>
           </div>
-          <p>© 2026 StudyTracker. Built with focus.</p>
+          <p>© 2026 StudyHub. Built with focus.</p>
         </div>
       </footer>
     </div>
