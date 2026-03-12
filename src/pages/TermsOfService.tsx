@@ -87,7 +87,7 @@ export default function TermsOfService() {
         <section className="space-y-4">
           <h2 className="text-xl font-semibold">9. Limitation of Liability</h2>
           <p className="text-muted-foreground leading-relaxed">
-            StudyTracker is provided "as is" without warranties of any kind. We shall not be liable for any indirect, incidental, or consequential damages arising from your use of the platform. Our total liability shall not exceed the amount paid by you, if any, for accessing the platform.
+            StudyHub is provided "as is" without warranties of any kind. We shall not be liable for any indirect, incidental, or consequential damages arising from your use of the platform. Our total liability shall not exceed the amount paid by you, if any, for accessing the platform.
           </p>
         </section>
 
