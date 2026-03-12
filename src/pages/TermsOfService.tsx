@@ -30,7 +30,7 @@ export default function TermsOfService() {
         <section className="space-y-4">
           <h2 className="text-xl font-semibold">2. Description of Service</h2>
           <p className="text-muted-foreground leading-relaxed">
-            StudyTracker is an educational platform that provides study tracking tools, analytics, lecture discovery, and AI-powered study assistance. We may offer courses and certificates that comply with applicable educational regulations including UGC and AICTE guidelines where required.
+            StudyHub is an educational platform that provides study tracking tools, analytics, lecture discovery, and AI-powered study assistance. We may offer courses and certificates that comply with applicable educational regulations including UGC and AICTE guidelines where required.
           </p>
         </section>
 
