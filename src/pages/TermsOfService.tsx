@@ -23,7 +23,7 @@ export default function TermsOfService() {
         <section className="space-y-4">
           <h2 className="text-xl font-semibold">1. Acceptance of Terms</h2>
           <p className="text-muted-foreground leading-relaxed">
-            By accessing or using StudyTracker, you agree to be bound by these Terms of Service. If you are under 18 years of age, your parent or legal guardian must agree to these terms on your behalf.
+            By accessing or using StudyHub, you agree to be bound by these Terms of Service. If you are under 18 years of age, your parent or legal guardian must agree to these terms on your behalf.
           </p>
         </section>
 
