@@ -23,6 +23,7 @@ import Upgrade from "./pages/Upgrade";
 import AdminPayments from "./pages/AdminPayments";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
+import QuestionPaperGenerator from "./pages/QuestionPaperGenerator";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -52,6 +53,7 @@ const App = () => (
               <Route path="/my-lectures" element={<MyLectures />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/upgrade" element={<Upgrade />} />
+              <Route path="/question-paper" element={<QuestionPaperGenerator />} />
               <Route path="/admin/payments" element={<AdminPayments />} />
             </Route>
             <Route path="*" element={<NotFound />} />

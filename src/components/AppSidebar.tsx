@@ -1,4 +1,4 @@
-import { LayoutDashboard, Timer, History, User, LogOut, GraduationCap, BookmarkCheck, Crown, Shield } from "lucide-react";
+import { LayoutDashboard, Timer, History, User, LogOut, GraduationCap, BookmarkCheck, Crown, Shield, FileText } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useAuth } from "@/contexts/AuthContext";
 import { useSubscription } from "@/hooks/useSubscription";
@@ -22,6 +22,7 @@ const items = [
   { title: "History", url: "/history", icon: History },
   { title: "Lectures Hub", url: "/lectures", icon: GraduationCap },
   { title: "My Lectures", url: "/my-lectures", icon: BookmarkCheck },
+  { title: "AI Paper Gen", url: "/question-paper", icon: FileText },
   { title: "Profile", url: "/profile", icon: User },
 ];
 
