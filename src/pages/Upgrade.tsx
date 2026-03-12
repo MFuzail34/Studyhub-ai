@@ -31,7 +31,7 @@ export default function Upgrade() {
   const [uploading, setUploading] = useState(false);
 
   const amount = planType === "monthly" ? 99 : 799;
-  const UPI_ID = "studifyhub@upi";
+  const UPI_ID = "9663849103@fam";
 
   const handleSubmitForm = async (e: React.FormEvent) => {
     e.preventDefault();
