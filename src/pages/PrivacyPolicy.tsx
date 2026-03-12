@@ -120,7 +120,7 @@ export default function PrivacyPolicy() {
             If you have any concerns or complaints regarding your data, you may contact our Grievance Officer:
           </p>
           <div className="rounded-lg bg-card border p-4 text-sm text-muted-foreground">
-            <p><strong>Email:</strong> grievance@studytracker.in</p>
+            <p><strong>Email:</strong> grievance@studyhub.in</p>
             <p><strong>Response time:</strong> Within 30 days of receiving the complaint</p>
           </div>
         </section>
