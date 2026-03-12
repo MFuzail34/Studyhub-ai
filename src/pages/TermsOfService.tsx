@@ -66,7 +66,7 @@ export default function TermsOfService() {
         <section className="space-y-4">
           <h2 className="text-xl font-semibold">6. Educational Content Disclaimer</h2>
           <p className="text-muted-foreground leading-relaxed">
-            StudyTracker is a supplementary educational tool. We do not guarantee specific academic results. Claims about study improvement are based on general research and individual results may vary. We do not make claims such as "100% exam success" or guaranteed outcomes.
+            StudyHub is a supplementary educational tool. We do not guarantee specific academic results. Claims about study improvement are based on general research and individual results may vary. We do not make claims such as "100% exam success" or guaranteed outcomes.
           </p>
         </section>
 
